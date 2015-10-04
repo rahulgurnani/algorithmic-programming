@@ -1,3 +1,4 @@
+// AUTHOR : RAHUL GURNANI
 // this file contains all types of variants of binary search 
 #include <iostream>
 using namespace std;
