@@ -148,7 +148,52 @@ struct linked_list
 		}
 		return slow;
 	}
-	
+	// function to swap the kth element from the end with the kth element from the begining
+	void swap(int k)
+	{
+		int cur = 1;
+		node* current = head;
+		node* prev_current = NULL;
+		while(current!=NULL && cur < k)
+		{
+			prev_current = current;
+			current = current->next;
+			cur++;
+		}
+		if(current == NULL)
+			return;
+		node* temp = current->next;
+		node* last_k_prev = NULL;
+		node* last_k = head;
+		while(temp!=NULL)
+		{
+			last_k_prev = last_k;
+			temp = temp->next;
+			last_k = last_k->next;
+		}
+		if(last_k == current)
+			return;
+		node* next_current = current->next;
+		node* last_k_next = last_k->next;
+		if(prev_current!=NULL)
+		{
+			prev_current->next = last_k;
+			if(last_k!=next_current)
+				last_k->next = next_current;
+			else
+				last_k->next = current;
+		}
+		else
+		{
+			last_k->next = current->next;
+		}
+		if(last_k_prev!=NULL)
+		{
+			if(last_k_prev!=current)
+				last_k_prev -> next = current;
+			current->next = last_k_next;
+		}
+	}
 
 };
 int main()
