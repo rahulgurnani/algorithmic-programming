@@ -15,8 +15,8 @@ struct linked_list
 	{
 		head = NULL;
 	}
-	// insert function inserts x into the list
-	void insert(int x)
+	// insert_sorted function insert_sorteds x into the list
+	void insert_sorted(int x)
 	{
 		if(head == NULL)
 		{
@@ -148,6 +148,8 @@ struct linked_list
 		}
 		return slow;
 	}
+	
+
 };
 int main()
 {
@@ -159,7 +161,7 @@ int main()
 	for(int i=0;i<n;i++)
 	{
 		cin >> x;
-		l.insert(x);
+		l.insert_sorted(x);
 	}
 	l.print_list();
 	cin >> x;
